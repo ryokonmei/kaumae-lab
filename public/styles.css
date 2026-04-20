@@ -204,6 +204,84 @@ h2 {
 }
 
 @media (max-width: 759px) {
+  .buy-page main {
+    width: min(100% - 24px, 420px);
+    min-height: 100svh;
+    padding: 14px 0 18px;
+  }
+
+  .ad-disclosure {
+    margin-bottom: 6px;
+    font-size: 11px;
+  }
+
+  .page-title {
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  .buy-hero {
+    gap: 12px;
+    padding: 0;
+  }
+
+  .point-grid {
+    gap: 8px;
+  }
+
+  .point-grid article {
+    padding: 0.72rem 0.82rem;
+    border-radius: 0.85rem;
+  }
+
+  .point-grid h2 {
+    margin-bottom: 0.18rem;
+    font-size: 0.9rem;
+  }
+
+  .point-grid p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .hero-product {
+    width: min(230px, 72vw);
+    padding: 0.8rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 16px 34px rgba(31, 42, 36, 0.12);
+  }
+
+  .buy-section {
+    margin-top: 12px;
+    padding: 0.9rem;
+    border-radius: 1.1rem;
+  }
+
+  .product-area {
+    gap: 9px;
+  }
+
+  .product-area h2 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+  }
+
+  .product-area p {
+    margin-bottom: 0;
+    font-size: 0.86rem;
+  }
+
+  .buy-button {
+    width: 100%;
+    min-height: 2.8rem;
+  }
+
+  .link-trust {
+    margin: -2px 0 0;
+    text-align: center;
+    font-size: 10px;
+  }
+
   .product-thumb {
     display: none;
   }
