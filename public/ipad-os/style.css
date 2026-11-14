@@ -7,7 +7,6 @@ h1 { font-size: 26px; margin: 0 0 8px; }
 .controls { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin: 24px 0 12px; padding: 0; border: 0; font-size: 13px; }
 .controls label { display: inline-flex; gap: 6px; align-items: center; min-height: 36px; cursor: pointer; }
 .controls input { accent-color: #38634f; width: 16px; height: 16px; }
-.controls label:last-child { margin-left: auto; }
 .controls input:focus-visible,.matrix:focus-visible { outline: 3px solid #608c78; outline-offset: 2px; }
 .legend { margin: 8px 0; } #count { float: right; }
 .matrix { max-height: 74vh; overflow: auto; border: 1px solid #d7dcd6; background: white; scrollbar-color: #a8b5ac #f0f2ee; }
@@ -23,7 +22,6 @@ td { width: var(--os); min-width: var(--os); text-align: center; color: #b1b8b2;
 td.yes { color: #22694c; background: #edf6ef; font-weight: 700; }
 td.security { color: #356e99; background: #eaf3fc; font-weight: 700; }
 .os-key { color: #22694c; } .security-key { color: #356e99; }
-.security-status { min-width: 172px; width: 172px; font-size: 11px; color: #52616d; }
 tbody tr:hover th,tbody tr:hover td { background: #f8f4e8; }
 thead small { display: block; font-size: 10px; font-weight: 400; color: #606c63; }
 .note { max-width: 960px; margin: 16px 0 0; } details { margin-top: 18px; } a { color: #38634f; }

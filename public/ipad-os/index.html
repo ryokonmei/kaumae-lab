@@ -16,19 +16,36 @@
     <label><input type="checkbox" name="family" value="Air" checked> Air</label>
     <label><input type="checkbox" name="family" value="mini" checked> mini</label>
     <label><input type="checkbox" name="family" value="Pro" checked> Pro</label>
-    <label><input type="checkbox" id="hide-old" checked> 古い機種を省く</label>
   </fieldset>
   <p class="legend"><span class="os-key">〇 OS対応</span>　<span class="security-key">△ セキュリティ更新のみ</span>　— 対応なし <span id="count"></span></p>
   <div class="matrix" tabindex="0" role="region" aria-label="iPad アップデート対応表。左右にスクロールできます">
     <table><caption class="sr-only">iPad機種の発売年とOSの対応世代</caption><thead></thead><tbody></tbody></table>
   </div>
   <noscript>対応表を表示するにはJavaScriptを有効にしてください。</noscript>
-  <p class="note">「セキュリティ更新のみ」は、最新iPadOSには非対応で、直近1年に旧OS向けのセキュリティ修正を確認した機種です。今後の更新継続や、すべての脆弱性への修正を保証するものではありません。</p>
-  <p class="note">「古い機種を省く」は、直近1年に修正を確認したOS（15以降）と、その1世代前のiPadOS 14まで表示します。終了予定日の予測はしていません。</p>
+  <p class="note">青の△「セキュリティ更新のみ」は、その列のOSには非対応ですが、旧OS向けの脆弱性修正を確認した最終時期までを示します。横軸の年は各OSの公開年です。△の区間は継続的な更新や、すべての脆弱性への修正を保証しません。</p>
   <p class="note">〇はOSの主要バージョンへの対応実績です。現在のインストール可否、ダウングレード可否、すべての機能への対応、セキュリティ更新の継続を示すものではありません。発売時のOSは小数点以下を省略しています。</p>
   <p class="note">iOS 12まで／iPadOS 13から。iPadOS 18の次は26です。発売時期は発売年で表示。</p>
   <details><summary>出典・確認日</summary><p>確認日：2026年11月14日</p>
+    <p>全46機種を最終対応OSごとに照合しました。以下は、そのOS向けに確認した脆弱性修正です。配信があっても公開CVEのない更新は、△の延長根拠にはしていません。</p>
     <ul>
+      <li>iOS 5系：5.1.1（2012年）。初代iPad。</li>
+      <li>iOS 9系：9.3.5（2016年8月25日）。iPad 2・第3世代・初代mini。</li>
+      <li>iOS 10系：10.3.3（2017年7月19日）。iPad 第4世代。</li>
+      <li>iOS 12系：12.5.7（2023年1月23日）。初代Air・mini 2・mini 3。</li>
+      <li>iPadOS 15系：15.8.8（2026年5月11日）。Air 2・mini 4。</li>
+      <li>iPadOS 16系：16.7.16（2026年5月11日）。iPad 第5世代・Pro 9.7インチ・Pro 12.9インチ初代。</li>
+      <li>iPadOS 17系：17.7.11（2026年5月11日）。iPad 第6世代・Pro 10.5インチ・Pro 12.9インチ第2世代。</li>
+      <li>iPadOS 18系：18.7.12（2026年11月9日）。iPad 第7世代。</li>
+      <li>iPadOS 26系：26.7.3（2026年11月9日）。iPad 第8世代・Air 第3世代・mini 第5世代・Pro 11インチ初代・Pro 12.9インチ第3世代。</li>
+      <li>iPadOS 27系：27.2.1（2026年11月9日）。最新OS対応の24機種。</li>
+    </ul>
+    <p>iOS 9.3.6・10.3.4（2019年7月22日、対象のCellularモデルのみ）、iOS 12.5.8（2026年1月26日）も確認していますが、Appleの履歴では公開CVEなしのため、上記の脆弱性修正とは区別しています。</p>
+    <ul>
+      <li><a href="https://support.apple.com/en-us/103597">Apple：iOS 5.1.1のセキュリティ修正</a></li>
+      <li><a href="https://support.apple.com/en-us/103628">Apple：iOS 9.3.5のセキュリティ修正</a></li>
+      <li><a href="https://support.apple.com/en-us/103803">Apple：iOS 10.3.3のセキュリティ修正</a></li>
+      <li><a href="https://support.apple.com/en-la/103015">Apple：iOS 12.5.7のセキュリティ修正</a></li>
+      <li><a href="https://support.apple.com/en-by/103179">Apple：2018〜2019年の更新履歴</a></li>
       <li><a href="https://support.apple.com/en-us/108043">Apple：iPadのモデルを識別する</a></li>
       <li><a href="https://www.apple.com/os/ipados/">Apple：iPadOS 27 対応機種</a></li>
       <li><a href="https://www.apple.com/newsroom/2026/10/apple-gives-ipad-mini-its-biggest-update-ever/">Apple：iPad mini (A20 Pro) 発売情報</a></li>

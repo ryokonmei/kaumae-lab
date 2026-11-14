@@ -51,9 +51,12 @@ const models = [
 ];
 const scroller = document.querySelector('.matrix');
 const families = [...document.querySelectorAll('input[name="family"]')];
-const hideOld = document.querySelector('#hide-old');
 // Actual CVE-linked releases, not promised support end dates. Reviewed 2026-11-14.
 const securityReleases = {
+  5: { version: '5.1.1', date: '2012-05-07', through: 5 },
+  9: { version: '9.3.5', date: '2016-08-25', through: 9 },
+  10: { version: '10.3.3', date: '2017-07-19', through: 10 },
+  12: { version: '12.5.7', date: '2023-01-23', through: 16 },
   15: { version: '15.8.8', date: '2026-05-11', through: 26 },
   16: { version: '16.7.16', date: '2026-05-11', through: 26 },
   17: { version: '17.7.11', date: '2026-05-11', through: 26 },
@@ -61,30 +64,26 @@ const securityReleases = {
   26: { version: '26.7.3', date: '2026-11-09', through: 27 },
   27: { version: '27.2.1', date: '2026-11-09', through: 27 }
 };
-// Include the OS generation immediately before the oldest recently patched OS.
-const oldestPatched = Math.min(...Object.keys(securityReleases).map(Number));
-const oldestVisible = versions[versions.indexOf(oldestPatched) - 1];
-hideOld.title = `直近1年にセキュリティ修正を確認したOSと、その1世代前（iPadOS ${oldestVisible}）まで表示`;
 const head = document.querySelector('thead');
-head.innerHTML = '<tr><th scope="col">機種（発売年）</th>' + versions.map(v => `<th scope="col"><small>${v < 13 ? 'iOS' : 'iPadOS'}</small>${v}<small>（${releaseYears[v]}年）</small></th>`).join('') + '<th scope="col" class="security-status">更新状況</th></tr>';
+head.innerHTML = '<tr><th scope="col">機種（発売年）</th>' + versions.map(v => `<th scope="col"><small>${v < 13 ? 'iOS' : 'iPadOS'}</small>${v}<small>（${releaseYears[v]}年）</small></th>`).join('') + '</tr>';
 function render() {
   const selected = new Set(families.filter(input => input.checked).map(input => input.value));
-  const visible = models.filter(m => selected.has(m[0]) && (!hideOld.checked || m[4] >= oldestVisible));
+  const visible = models.filter(m => selected.has(m[0]));
   document.querySelector('tbody').innerHTML = visible.map(([,name,year,min,max]) => {
     const security = securityReleases[max];
     const cells = versions.map(v => {
       if (v >= min && v <= max) return '<td class="yes">〇</td>';
+      if (security && v > max && v <= security.through) {
+        const os = max < 13 ? 'iOS' : 'iPadOS';
+        return `<td class="security" title="${os} ${security.version}：${security.date} に修正確認。この列のOSには非対応。">△</td>`;
+      }
       return '<td>—</td>';
     }).join('');
-    const latest = max === versions[versions.length - 1];
-    const status = latest ? '最新OS対応' : security ? '△ セキュリティ更新のみ' : '修正未確認';
-    const detail = security ? `iPadOS ${security.version}：${security.date} 修正確認` : '直近1年の修正を未確認。終了の断定ではありません。';
-    return `<tr><th scope="row">${name}（${year}年）</th>${cells}<td class="security-status ${latest ? 'yes' : security ? 'security' : ''}" title="${detail}">${status}</td></tr>`;
+    return `<tr><th scope="row">${name}（${year}年）</th>${cells}</tr>`;
   }).join('');
   document.querySelector('#count').textContent = `${visible.length}機種`;
 }
 families.forEach(input => input.addEventListener('change', render));
-hideOld.addEventListener('change', render);
 // Leave touch gestures native; mouse dragging moves the OS axis only.
 let drag = null;
 scroller.addEventListener('pointerdown', event => {
