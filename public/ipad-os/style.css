@@ -4,12 +4,14 @@ body { margin: 0; }
 main { max-width: 1320px; margin: auto; padding: 36px 24px; }
 h1 { font-size: 26px; margin: 0 0 8px; }
 .intro,.legend,.note,details { color: #626a66; font-size: 13px; line-height: 1.8; }
-.controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 24px 0 12px; font-size: 13px; }
-button,select { font: inherit; color: inherit; background: white; border: 1px solid #cdd3ce; border-radius: 5px; padding: 7px 10px; }
-button { cursor: pointer; } button:hover { background: #edf3ee; }
-button:focus-visible,select:focus-visible,.matrix:focus-visible { outline: 3px solid #608c78; outline-offset: 2px; }
+.controls { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin: 24px 0 12px; padding: 0; border: 0; font-size: 13px; }
+.controls label { display: inline-flex; gap: 6px; align-items: center; min-height: 36px; cursor: pointer; }
+.controls input { accent-color: #38634f; width: 16px; height: 16px; }
+.controls input:focus-visible,.matrix:focus-visible { outline: 3px solid #608c78; outline-offset: 2px; }
 .legend { margin: 8px 0; } #count { float: right; }
 .matrix { max-height: 74vh; overflow: auto; border: 1px solid #d7dcd6; background: white; scrollbar-color: #a8b5ac #f0f2ee; }
+.matrix.dragging { cursor: grabbing; user-select: none; }
+@media (hover: hover) and (pointer: fine) { .matrix { cursor: grab; } .matrix.dragging { cursor: grabbing; } }
 table { border-spacing: 0; table-layout: fixed; width: max-content; font-size: 13px; }
 th,td { height: 44px; padding: 9px 8px; border-right: 1px solid #e3e7e1; border-bottom: 1px solid #e3e7e1; }
 thead th { position: sticky; top: 0; z-index: 3; background: #eef1eb; width: var(--os); min-width: var(--os); text-align: center; }

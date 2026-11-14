@@ -49,25 +49,39 @@ const models = [
   ['Pro','iPad Pro 12.9インチ 第1世代',2015,9,16]
 ];
 const scroller = document.querySelector('.matrix');
-const family = document.querySelector('#family');
-const columns = document.querySelector('#columns');
+const families = [...document.querySelectorAll('input[name="family"]')];
 const head = document.querySelector('thead');
 head.innerHTML = '<tr><th scope="col">機種（発売年）</th>' + versions.map(v => `<th scope="col"><small>${v < 13 ? 'iOS' : 'iPadOS'}</small>${v}</th>`).join('') + '</tr>';
 function render() {
-  const visible = models.filter(m => family.value === 'all' || m[0] === family.value);
+  const selected = new Set(families.filter(input => input.checked).map(input => input.value));
+  const visible = models.filter(m => selected.has(m[0]));
   document.querySelector('tbody').innerHTML = visible.map(([,name,year,min,max]) => `<tr><th scope="row">${name}（${year}年）</th>${versions.map(v => `<td class="${v >= min && v <= max ? 'yes' : ''}">${v >= min && v <= max ? '〇' : '—'}</td>`).join('')}</tr>`).join('');
   document.querySelector('#count').textContent = `${visible.length}機種`;
 }
-function sizeColumns() {
-  const nameWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--name'));
-  const width = Math.max(46, (scroller.clientWidth - nameWidth) / Number(columns.value));
-  document.documentElement.style.setProperty('--os', `${width}px`);
-  scroller.scrollLeft = scroller.scrollWidth;
+families.forEach(input => input.addEventListener('change', render));
+// Leave touch gestures native; mouse dragging moves the OS axis only.
+let drag = null;
+scroller.addEventListener('pointerdown', event => {
+  if (event.pointerType !== 'mouse' || event.button !== 0) return;
+  const bounds = scroller.getBoundingClientRect();
+  if (event.clientX >= bounds.left + scroller.clientWidth || event.clientY >= bounds.top + scroller.clientHeight) return;
+  drag = { id: event.pointerId, x: event.clientX, left: scroller.scrollLeft };
+  scroller.setPointerCapture(event.pointerId);
+  scroller.classList.add('dragging');
+  event.preventDefault();
+});
+scroller.addEventListener('pointermove', event => {
+  if (!drag || drag.id !== event.pointerId) return;
+  scroller.scrollLeft = drag.left - (event.clientX - drag.x);
+});
+function stopDrag(event) {
+  if (!drag || drag.id !== event.pointerId) return;
+  drag = null;
+  scroller.classList.remove('dragging');
+  if (scroller.hasPointerCapture(event.pointerId)) scroller.releasePointerCapture(event.pointerId);
 }
-family.addEventListener('change', render);
-columns.addEventListener('change', sizeColumns);
-document.querySelector('#oldest').addEventListener('click', () => scroller.scrollTo({left: 0, behavior: 'smooth'}));
-document.querySelector('#latest').addEventListener('click', () => scroller.scrollTo({left: scroller.scrollWidth, behavior: 'smooth'}));
-window.addEventListener('resize', sizeColumns);
+scroller.addEventListener('pointerup', stopDrag);
+scroller.addEventListener('pointercancel', stopDrag);
+scroller.addEventListener('lostpointercapture', stopDrag);
 render();
-requestAnimationFrame(sizeColumns);
+requestAnimationFrame(() => { scroller.scrollLeft = scroller.scrollWidth; });
