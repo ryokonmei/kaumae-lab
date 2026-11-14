@@ -68,7 +68,13 @@ const securityReleases = {
   27: { version: '27.2.1', date: '2026-11-09', through: 27 }
 };
 const head = document.querySelector('thead');
-head.innerHTML = '<tr><th scope="col">機種（発売年）</th>' + versions.map(v => `<th scope="col"><small>${v < 13 ? 'iOS' : 'iPadOS'}</small>${v}<small>（${releaseYears[v]}年）</small></th>`).join('') + '</tr>';
+head.innerHTML = '<tr><th scope="col"><span class="desktop-label">機種（発売年）</span><span class="mobile-label" aria-hidden="true">機種</span></th>' + versions.map(v => `<th scope="col" aria-label="${v < 13 ? 'iOS' : 'iPadOS'} ${v}、${releaseYears[v]}年"><small>${v < 13 ? 'iOS' : 'iPadOS'}</small>${v}<small><span class="desktop-label">（${releaseYears[v]}年）</span><span class="mobile-label" aria-hidden="true">(${String(releaseYears[v]).slice(-2)})</span></small></th>`).join('') + '</tr>';
+function shortModelName(name) {
+  return name.replace(/^iPad (Air|mini|Pro)/, '$1')
+    .replace(/インチ/g, '')
+    .replace(/第(\d+)世代/g, '$1世代')
+    .replace(/第1世代/g, '初代');
+}
 function render() {
   const selected = new Set(families.filter(input => input.checked).map(input => input.value));
   const visible = models.filter(m => selected.has(m[0]));
@@ -83,7 +89,7 @@ function render() {
       return '<td>—</td>';
     }).join('');
     const purchase = affiliateLinks[name] ? `<a class="purchase-link" href="${affiliateLinks[name]}" target="_blank" rel="nofollow sponsored noopener" aria-label="${name}の中古を楽天のにこスマで見る（広告・新しいタブ）">中古・楽天 ↗</a>` : '';
-    return `<tr><th scope="row">${name}（${year}年）${purchase}</th>${cells}</tr>`;
+    return `<tr><th scope="row" aria-label="${name}、${year}年発売"><span class="desktop-label">${name}（${year}年）</span><span class="mobile-label" aria-hidden="true">${shortModelName(name)}</span>${purchase}</th>${cells}</tr>`;
   }).join('');
   document.querySelector('#count').textContent = `${visible.length}機種`;
 }

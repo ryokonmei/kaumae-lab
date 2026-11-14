@@ -1,5 +1,6 @@
 :root { font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif; color: #25312e; background: #faf9f6; --name: 280px; --os: 90px; }
 * { box-sizing: border-box; }
+.mobile-label { display: none; }
 body { margin: 0; }
 main { max-width: 1320px; margin: auto; padding: 36px 24px; }
 h1 { font-size: 26px; margin: 0 0 8px; }
@@ -30,4 +31,17 @@ tbody tr:hover th,tbody tr:hover td { background: #f8f4e8; }
 thead small { display: block; font-size: 10px; font-weight: 400; color: #606c63; }
 .note { max-width: 960px; margin: 16px 0 0; } details { margin-top: 18px; } a { color: #38634f; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-@media(max-width:600px) { :root { --name: 175px; } main { padding: 22px 12px; } h1 { font-size: 22px; } table { font-size: 12px; } th,td { padding: 8px 6px; } .controls { gap: 8px; } .matrix { max-height: 72svh; } }
+@media(max-width:600px) {
+  :root { --name: 132px; --os: 48px; }
+  .desktop-label { display: none; }
+  .mobile-label { display: inline; }
+  main { padding: 18px 10px; }
+  h1 { font-size: 22px; }
+  table { font-size: 12px; }
+  th,td { height: 38px; padding: 7px 5px; }
+  thead small { font-size: 9px; }
+  .controls { gap: 8px; margin: 12px 0 8px; }
+  .legend { font-size: 11px; }
+  #count { float: none; display: inline-block; margin-left: 8px; }
+  .matrix { max-height: 72svh; }
+}
