@@ -51,6 +51,8 @@ const models = [
 ];
 const scroller = document.querySelector('.matrix');
 const affiliateLinks = {
+  'iPad 第10世代': 'https://hb.afl.rakuten.co.jp/ichiba/52fc2c79.d509a37d.52fc2c7a.2f8eff5b/_RTLink131223?pc=https%3A%2F%2Fproduct.rakuten.co.jp%2Fproduct%2F-%2F1aec32247c925ff2542ed2b1d0ee980a%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjY0eDY0IiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjoxLCJhbXAiOmZhbHNlfQ%3D%3D',
+  'iPad (A16)': 'https://hb.afl.rakuten.co.jp/ichiba/52fc2c79.d509a37d.52fc2c7a.2f8eff5b/_RTLink131223?pc=https%3A%2F%2Fproduct.rakuten.co.jp%2Fproduct%2F-%2F57f2e1f59af33f0f2fa7034b3d9c385c%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjY0eDY0IiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjoxLCJhbXAiOmZhbHNlfQ%3D%3D',
   'iPad 第9世代': 'https://hb.afl.rakuten.co.jp/ichiba/53054539.5321ec00.5305453a.73a7fe7c/_RTLink131223?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnicosuma-store%2Fipd-9gn-64-a%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjY0eDY0IiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D'
 };
 const families = [...document.querySelectorAll('input[name="family"]')];
@@ -88,7 +90,8 @@ function render() {
       }
       return '<td>—</td>';
     }).join('');
-    const purchase = affiliateLinks[name] ? `<a class="purchase-link" href="${affiliateLinks[name]}" target="_blank" rel="nofollow sponsored noopener" aria-label="${name}の中古を楽天のにこスマで見る（広告・新しいタブ）">中古・楽天 ↗</a>` : '';
+    const purchaseLabel = name === 'iPad 第9世代' ? '中古・楽天' : '楽天で比較';
+    const purchase = affiliateLinks[name] ? `<a class="purchase-link" href="${affiliateLinks[name]}" target="_blank" rel="nofollow sponsored noopener" aria-label="${name}：${purchaseLabel}（広告・新しいタブ）">${purchaseLabel} ↗</a>` : '';
     return `<tr><th scope="row" aria-label="${name}、${year}年発売"><span class="desktop-label">${name}（${year}年）</span><span class="mobile-label" aria-hidden="true">${shortModelName(name)}</span>${purchase}</th>${cells}</tr>`;
   }).join('');
   document.querySelector('#count').textContent = `${visible.length}機種`;
