@@ -93,7 +93,7 @@ function render() {
     }).join('');
     const purchaseLabel = ['iPad 第8世代', 'iPad 第9世代'].includes(name) ? '中古・楽天' : '楽天で比較';
     const compactPurchaseLabel = purchaseLabel === '中古・楽天' ? '中古' : '比較';
-    const purchase = affiliateLinks[name] ? `<a class="purchase-link" href="${affiliateLinks[name]}" target="_blank" rel="nofollow sponsored noopener" aria-label="${name}：${purchaseLabel}（広告・新しいタブ）"><span class="desktop-label">${purchaseLabel} ↗</span><span class="mobile-label" aria-hidden="true">${compactPurchaseLabel}↗</span></a>` : '';
+    const purchase = affiliateLinks[name] ? `<a class="purchase-link" href="${affiliateLinks[name]}" target="_blank" rel="nofollow sponsored noopener" aria-label="${name}：${purchaseLabel}（広告・新しいタブ）">${compactPurchaseLabel}↗</a>` : '';
     return `<tr><th scope="row" aria-label="${name}、${year}年発売"><span class="desktop-label">${name}（${year}年）</span><span class="mobile-label" aria-hidden="true">${shortModelName(name)}</span>${purchase}</th>${cells}</tr>`;
   }).join('');
   document.querySelector('#count').textContent = `${visible.length}機種`;
