@@ -1,4 +1,4 @@
-:root { font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif; color: #25312e; background: #faf9f6; --name: 280px; --os: 90px; }
+:root { font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif; color: #25312e; background: #faf9f6; --name: 240px; --os: 90px; }
 * { box-sizing: border-box; }
 .mobile-label { display: none; }
 body { margin: 0; }
@@ -34,7 +34,7 @@ thead small { display: block; font-size: 10px; font-weight: 400; color: #606c63;
 .note { max-width: 960px; margin: 16px 0 0; } details { margin-top: 18px; } a { color: #38634f; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 @media(max-width:600px) {
-  :root { --name: 132px; --os: 48px; }
+  :root { --name: 120px; --os: 48px; }
   .desktop-label { display: none; }
   .mobile-label { display: inline; }
   main { padding: 18px 10px; }
