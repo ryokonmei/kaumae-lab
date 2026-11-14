@@ -3,10 +3,11 @@
 body { margin: 0; }
 main { max-width: 1320px; margin: auto; padding: 36px 24px; }
 h1 { font-size: 26px; margin: 0 0 8px; }
-.intro,.legend,.note,details { color: #626a66; font-size: 13px; line-height: 1.8; }
+.legend,.note,details { color: #626a66; font-size: 13px; line-height: 1.8; }
 .controls { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin: 24px 0 12px; padding: 0; border: 0; font-size: 13px; }
 .controls label { display: inline-flex; gap: 6px; align-items: center; min-height: 36px; cursor: pointer; }
 .controls input { accent-color: #38634f; width: 16px; height: 16px; }
+.controls label:last-child { margin-left: auto; }
 .controls input:focus-visible,.matrix:focus-visible { outline: 3px solid #608c78; outline-offset: 2px; }
 .legend { margin: 8px 0; } #count { float: right; }
 .matrix { max-height: 74vh; overflow: auto; border: 1px solid #d7dcd6; background: white; scrollbar-color: #a8b5ac #f0f2ee; }

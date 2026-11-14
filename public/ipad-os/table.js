@@ -50,15 +50,19 @@ const models = [
 ];
 const scroller = document.querySelector('.matrix');
 const families = [...document.querySelectorAll('input[name="family"]')];
+const hideOld = document.querySelector('#hide-old');
+const previousOS = versions[versions.length - 2];
+hideOld.title = `iPadOS ${previousOS}以降に対応する機種だけ表示`;
 const head = document.querySelector('thead');
 head.innerHTML = '<tr><th scope="col">機種（発売年）</th>' + versions.map(v => `<th scope="col"><small>${v < 13 ? 'iOS' : 'iPadOS'}</small>${v}</th>`).join('') + '</tr>';
 function render() {
   const selected = new Set(families.filter(input => input.checked).map(input => input.value));
-  const visible = models.filter(m => selected.has(m[0]));
+  const visible = models.filter(m => selected.has(m[0]) && (!hideOld.checked || m[4] >= previousOS));
   document.querySelector('tbody').innerHTML = visible.map(([,name,year,min,max]) => `<tr><th scope="row">${name}（${year}年）</th>${versions.map(v => `<td class="${v >= min && v <= max ? 'yes' : ''}">${v >= min && v <= max ? '〇' : '—'}</td>`).join('')}</tr>`).join('');
   document.querySelector('#count').textContent = `${visible.length}機種`;
 }
 families.forEach(input => input.addEventListener('change', render));
+hideOld.addEventListener('change', render);
 // Leave touch gestures native; mouse dragging moves the OS axis only.
 let drag = null;
 scroller.addEventListener('pointerdown', event => {
