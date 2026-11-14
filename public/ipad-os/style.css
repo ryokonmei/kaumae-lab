@@ -8,7 +8,7 @@ h1 { font-size: 26px; margin: 0 0 8px; }
 .ad-note { margin: 0 0 0 auto; color: #626a66; font-size: 11px; text-align: right; }
 .search-intro { margin: 4px 0 0; color: #626a66; font-size: 12px; line-height: 1.6; }
 details h2 { font-size: 15px; margin-top: 18px; }
-.purchase-link { display: block; width: fit-content; padding: 3px 0; color: #985539; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.purchase-link { display: inline; margin-left: 6px; padding: 0; color: #985539; font-size: 11px; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .purchase-link:focus-visible { outline: 2px solid #608c78; outline-offset: 2px; }
 .legend,.note,details { color: #626a66; font-size: 13px; line-height: 1.8; }
 .controls { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin: 24px 0 12px; padding: 0; border: 0; font-size: 13px; }
