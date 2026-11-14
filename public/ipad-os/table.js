@@ -51,7 +51,7 @@ const models = [
 ];
 const scroller = document.querySelector('.matrix');
 const affiliateLinks = {
-  'iPad 第9世代': 'https://hb.afl.rakuten.co.jp/ichiba/53054539.5321ec00.5305453a.73a7fe7c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnicosuma-store%2Fipd-9gn-64-a%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9'
+  'iPad 第9世代': 'https://hb.afl.rakuten.co.jp/ichiba/53054539.5321ec00.5305453a.73a7fe7c/_RTLink131223?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnicosuma-store%2Fipd-9gn-64-a%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjY0eDY0IiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D'
 };
 const families = [...document.querySelectorAll('input[name="family"]')];
 // Actual CVE-linked releases, not promised support end dates. Reviewed 2026-11-14.
