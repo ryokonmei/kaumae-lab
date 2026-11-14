@@ -11,8 +11,8 @@ details h2 { font-size: 15px; margin-top: 18px; }
 .purchase-link { display: inline; margin-left: 6px; padding: 0; color: #985539; font-size: 11px; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .purchase-link:focus-visible { outline: 2px solid #608c78; outline-offset: 2px; }
 .legend,.note,details { color: #626a66; font-size: 13px; line-height: 1.8; }
-.controls { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin: 24px 0 12px; padding: 0; border: 0; font-size: 13px; }
-.controls label { display: inline-flex; gap: 6px; align-items: center; min-height: 36px; cursor: pointer; }
+.controls { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin: 12px 0 6px; padding: 0; border: 0; font-size: 13px; }
+.controls label { display: inline-flex; gap: 6px; align-items: center; min-height: 28px; cursor: pointer; }
 .controls input { accent-color: #38634f; width: 16px; height: 16px; }
 .controls input:focus-visible,.matrix:focus-visible { outline: 3px solid #608c78; outline-offset: 2px; }
 .legend { margin: 8px 0; } #count { float: right; }
@@ -42,7 +42,7 @@ thead small { display: block; font-size: 10px; font-weight: 400; color: #606c63;
   table { font-size: 12px; }
   th,td { height: 38px; padding: 7px 5px; }
   thead small { font-size: 9px; }
-  .controls { gap: 8px; margin: 12px 0 8px; }
+  .controls { gap: 8px; margin: 8px 0 4px; }
   .legend { font-size: 11px; }
   #count { float: none; display: inline-block; margin-left: 8px; }
   .matrix { max-height: min(calc(72svh - 38px), calc(100svh - 270px)); }
