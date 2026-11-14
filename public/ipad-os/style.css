@@ -23,8 +23,7 @@ td { width: var(--os); min-width: var(--os); text-align: center; color: #b1b8b2;
 td.yes { color: #22694c; background: #edf6ef; font-weight: 700; }
 td.security { color: #356e99; background: #eaf3fc; font-weight: 700; }
 .os-key { color: #22694c; } .security-key { color: #356e99; }
-.security-date { min-width: 142px; width: 142px; font-size: 11px; color: #52616d; }
-.security-date small { display: block; font-size: 10px; font-weight: 400; }
+.security-status { min-width: 172px; width: 172px; font-size: 11px; color: #52616d; }
 tbody tr:hover th,tbody tr:hover td { background: #f8f4e8; }
 thead small { display: block; font-size: 10px; font-weight: 400; color: #606c63; }
 .note { max-width: 960px; margin: 16px 0 0; } details { margin-top: 18px; } a { color: #38634f; }

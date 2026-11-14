@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>iPad 機種別 OS対応表</title>
-  <meta name="description" content="iPad・Air・mini・Proの発売年とiOS / iPadOS対応世代を一覧で確認。横スクロールで古いOSまで見られます。">
+  <title>iPad アップデート対応表｜機種別iPadOS・セキュリティ更新</title>
+  <meta name="description" content="iPad・Air・mini・Proのアップデート対応表。発売年とiOS・iPadOSの対応バージョン、旧OS向けセキュリティアップデートのみの機種を一覧で確認できます。">
   <link rel="stylesheet" href="style.css">
   <script src="table.js" defer></script>
 </head>
 <body><main>
-  <h1>iPad OS対応表</h1>
+  <h1>iPad アップデート対応表</h1>
   <fieldset class="controls">
     <legend class="sr-only">表示するシリーズ</legend>
     <label><input type="checkbox" name="family" value="iPad" checked> iPad</label>
@@ -18,12 +18,12 @@
     <label><input type="checkbox" name="family" value="Pro" checked> Pro</label>
     <label><input type="checkbox" id="hide-old" checked> 古い機種を省く</label>
   </fieldset>
-  <p class="legend"><span class="os-key">〇 OS対応</span>　<span class="security-key">△ 旧OSの修正確認</span>　— 対応なし <span id="count"></span></p>
-  <div class="matrix" tabindex="0" role="region" aria-label="iPad OS対応表。左右にスクロールできます">
+  <p class="legend"><span class="os-key">〇 OS対応</span>　<span class="security-key">△ セキュリティ更新のみ</span>　— 対応なし <span id="count"></span></p>
+  <div class="matrix" tabindex="0" role="region" aria-label="iPad アップデート対応表。左右にスクロールできます">
     <table><caption class="sr-only">iPad機種の発売年とOSの対応世代</caption><thead></thead><tbody></tbody></table>
   </div>
   <noscript>対応表を表示するにはJavaScriptを有効にしてください。</noscript>
-  <p class="note">青の△は、その列のOSが公開された時期にも、機種の最終対応OS向けにセキュリティ修正が確認できたことを示します。その列のOSへの対応や、継続的・完全な保護を意味しません。右端は最終対応OSで確認した修正日です。</p>
+  <p class="note">「セキュリティ更新のみ」は、最新iPadOSには非対応で、直近1年に旧OS向けのセキュリティ修正を確認した機種です。今後の更新継続や、すべての脆弱性への修正を保証するものではありません。</p>
   <p class="note">「古い機種を省く」は、直近1年に修正を確認したOS（15以降）と、その1世代前のiPadOS 14まで表示します。終了予定日の予測はしていません。</p>
   <p class="note">〇はOSの主要バージョンへの対応実績です。現在のインストール可否、ダウングレード可否、すべての機能への対応、セキュリティ更新の継続を示すものではありません。発売時のOSは小数点以下を省略しています。</p>
   <p class="note">iOS 12まで／iPadOS 13から。iPadOS 18の次は26です。発売時期は発売年で表示。</p>

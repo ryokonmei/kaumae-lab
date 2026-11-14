@@ -1,5 +1,6 @@
 // Major versions only; min is the shipping OS family, max is the last compatible family.
 const versions = [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,26,27];
+const releaseYears = {3:2010,4:2010,5:2011,6:2012,7:2013,8:2014,9:2015,10:2016,11:2017,12:2018,13:2019,14:2020,15:2021,16:2022,17:2023,18:2024,26:2025,27:2026};
 const models = [
   ['iPad','iPad (A16)',2025,18,27],
   ['iPad','iPad 第10世代',2022,16,27],
@@ -65,7 +66,7 @@ const oldestPatched = Math.min(...Object.keys(securityReleases).map(Number));
 const oldestVisible = versions[versions.indexOf(oldestPatched) - 1];
 hideOld.title = `直近1年にセキュリティ修正を確認したOSと、その1世代前（iPadOS ${oldestVisible}）まで表示`;
 const head = document.querySelector('thead');
-head.innerHTML = '<tr><th scope="col">機種（発売年）</th>' + versions.map(v => `<th scope="col"><small>${v < 13 ? 'iOS' : 'iPadOS'}</small>${v}</th>`).join('') + '<th scope="col" class="security-date">最終修正確認</th></tr>';
+head.innerHTML = '<tr><th scope="col">機種（発売年）</th>' + versions.map(v => `<th scope="col"><small>${v < 13 ? 'iOS' : 'iPadOS'}</small>${v}<small>（${releaseYears[v]}年）</small></th>`).join('') + '<th scope="col" class="security-status">更新状況</th></tr>';
 function render() {
   const selected = new Set(families.filter(input => input.checked).map(input => input.value));
   const visible = models.filter(m => selected.has(m[0]) && (!hideOld.checked || m[4] >= oldestVisible));
@@ -73,10 +74,12 @@ function render() {
     const security = securityReleases[max];
     const cells = versions.map(v => {
       if (v >= min && v <= max) return '<td class="yes">〇</td>';
-      if (security && v > max && v <= security.through) return `<td class="security" title="iPadOS ${security.version} の修正を ${security.date} に確認。この列のOSには非対応。">△</td>`;
       return '<td>—</td>';
     }).join('');
-    return `<tr><th scope="row">${name}（${year}年）</th>${cells}<td class="security-date">${security ? `<time datetime="${security.date}">${security.date}</time><small>iPadOS ${security.version}</small>` : '未確認'}</td></tr>`;
+    const latest = max === versions[versions.length - 1];
+    const status = latest ? '最新OS対応' : security ? '△ セキュリティ更新のみ' : '修正未確認';
+    const detail = security ? `iPadOS ${security.version}：${security.date} 修正確認` : '直近1年の修正を未確認。終了の断定ではありません。';
+    return `<tr><th scope="row">${name}（${year}年）</th>${cells}<td class="security-status ${latest ? 'yes' : security ? 'security' : ''}" title="${detail}">${status}</td></tr>`;
   }).join('');
   document.querySelector('#count').textContent = `${visible.length}機種`;
 }
