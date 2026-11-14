@@ -50,6 +50,9 @@ const models = [
   ['Pro','iPad Pro 12.9インチ 第1世代',2015,9,16]
 ];
 const scroller = document.querySelector('.matrix');
+const affiliateLinks = {
+  'iPad 第9世代': 'https://hb.afl.rakuten.co.jp/ichiba/53054539.5321ec00.5305453a.73a7fe7c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnicosuma-store%2Fipd-9gn-64-a%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9'
+};
 const families = [...document.querySelectorAll('input[name="family"]')];
 // Actual CVE-linked releases, not promised support end dates. Reviewed 2026-11-14.
 const securityReleases = {
@@ -79,7 +82,8 @@ function render() {
       }
       return '<td>—</td>';
     }).join('');
-    return `<tr><th scope="row">${name}（${year}年）</th>${cells}</tr>`;
+    const purchase = affiliateLinks[name] ? `<a class="purchase-link" href="${affiliateLinks[name]}" target="_blank" rel="nofollow sponsored noopener" aria-label="${name}の中古を楽天のにこスマで見る（広告・新しいタブ）">中古・楽天 ↗</a>` : '';
+    return `<tr><th scope="row">${name}（${year}年）${purchase}</th>${cells}</tr>`;
   }).join('');
   document.querySelector('#count').textContent = `${visible.length}機種`;
 }
@@ -88,6 +92,7 @@ families.forEach(input => input.addEventListener('change', render));
 let drag = null;
 scroller.addEventListener('pointerdown', event => {
   if (event.pointerType !== 'mouse' || event.button !== 0) return;
+  if (event.target.closest('a')) return;
   const bounds = scroller.getBoundingClientRect();
   if (event.clientX >= bounds.left + scroller.clientWidth || event.clientY >= bounds.top + scroller.clientHeight) return;
   drag = { id: event.pointerId, x: event.clientX, left: scroller.scrollLeft };
