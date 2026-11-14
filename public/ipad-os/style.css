@@ -14,7 +14,7 @@ h1 { font-size: 26px; margin: 0 0 8px; }
 .controls input { accent-color: #38634f; width: 16px; height: 16px; }
 .controls input:focus-visible,.matrix:focus-visible { outline: 3px solid #608c78; outline-offset: 2px; }
 .legend { margin: 8px 0; } #count { float: right; }
-.matrix { max-height: 74vh; overflow: auto; border: 1px solid #d7dcd6; background: white; scrollbar-color: #a8b5ac #f0f2ee; }
+.matrix { max-height: min(calc(74vh - 44px), calc(100svh - 250px)); overflow: auto; border: 1px solid #d7dcd6; background: white; scrollbar-color: #a8b5ac #f0f2ee; }
 .matrix.dragging { cursor: grabbing; user-select: none; }
 @media (hover: hover) and (pointer: fine) { .matrix { cursor: grab; } .matrix.dragging { cursor: grabbing; } }
 table { border-spacing: 0; table-layout: fixed; width: max-content; font-size: 13px; }
@@ -43,5 +43,5 @@ thead small { display: block; font-size: 10px; font-weight: 400; color: #606c63;
   .controls { gap: 8px; margin: 12px 0 8px; }
   .legend { font-size: 11px; }
   #count { float: none; display: inline-block; margin-left: 8px; }
-  .matrix { max-height: 72svh; }
+  .matrix { max-height: min(calc(72svh - 38px), calc(100svh - 270px)); }
 }
