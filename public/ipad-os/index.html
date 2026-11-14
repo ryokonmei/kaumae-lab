@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>iPad 機種別 OS対応表</title>
+  <meta name="description" content="iPad・Air・mini・Proの発売年とiOS / iPadOS対応世代を一覧で確認。横スクロールで古いOSまで見られます。">
+  <link rel="stylesheet" href="style.css">
+  <script src="table.js" defer></script>
+</head>
+<body><main>
+  <h1>iPad OS対応表</h1>
+  <p class="intro">機種と、使えたOS。古いOSは左にスクロール。</p>
+  <div class="controls">
+    <label>機種 <select id="family"><option value="all">すべて</option><option>iPad</option><option>Air</option><option>mini</option><option>Pro</option></select></label>
+    <label>表示列数 <select id="columns"><option>4</option><option>6</option><option selected>8</option><option>10</option></select></label>
+    <button id="oldest" type="button">← 古いOS</button><button id="latest" type="button">最新OS →</button>
+  </div>
+  <p class="legend">〇 対応実績あり　— 対応なし・発売前 <span id="count"></span></p>
+  <div class="matrix" tabindex="0" role="region" aria-label="iPad OS対応表。左右にスクロールできます">
+    <table><caption class="sr-only">iPad機種の発売年とOSの対応世代</caption><thead></thead><tbody></tbody></table>
+  </div>
+  <noscript>対応表を表示するにはJavaScriptを有効にしてください。</noscript>
+  <p class="note">〇はOSの主要バージョンへの対応実績です。現在のインストール可否、ダウングレード可否、すべての機能への対応、セキュリティ更新の継続を示すものではありません。発売時のOSは小数点以下を省略しています。</p>
+  <p class="note">iOS 12まで／iPadOS 13から。iPadOS 18の次は26です。発売時期は発売年で表示。</p>
+  <details><summary>出典・確認日</summary><p>確認日：2026年11月14日</p>
+    <ul>
+      <li><a href="https://support.apple.com/en-us/108043">Apple：iPadのモデルを識別する</a></li>
+      <li><a href="https://www.apple.com/os/ipados/">Apple：iPadOS 27 対応機種</a></li>
+      <li><a href="https://www.apple.com/newsroom/2026/10/apple-gives-ipad-mini-its-biggest-update-ever/">Apple：iPad mini (A20 Pro) 発売情報</a></li>
+      <li><a href="https://support.apple.com/en-my/123706">Apple：iPadOS 26 対応機種</a></li>
+      <li><a href="https://www.apple.com/newsroom/2024/09/ipados-18-is-now-available-taking-ipad-to-the-next-level/">Apple：iPadOS 18</a></li>
+      <li><a href="https://www.apple.com/newsroom/2023/09/ipados-17-is-now-available/">Apple：iPadOS 17</a></li>
+      <li><a href="https://www.apple.com/newsroom/2022/10/ipados-16-is-available-today/">Apple：iPadOS 16</a></li>
+      <li><a href="https://www.apple.com/newsroom/2021/09/ipados-15-is-available-today/">Apple：iPadOS 15</a></li>
+      <li><a href="https://support.apple.com/100100">Apple：セキュリティリリース履歴</a></li>
+    </ul>
+  </details>
+</main></body></html>

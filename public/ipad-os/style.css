@@ -1,0 +1,25 @@
+:root { font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif; color: #25312e; background: #faf9f6; --name: 280px; --os: 90px; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1320px; margin: auto; padding: 36px 24px; }
+h1 { font-size: 26px; margin: 0 0 8px; }
+.intro,.legend,.note,details { color: #626a66; font-size: 13px; line-height: 1.8; }
+.controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 24px 0 12px; font-size: 13px; }
+button,select { font: inherit; color: inherit; background: white; border: 1px solid #cdd3ce; border-radius: 5px; padding: 7px 10px; }
+button { cursor: pointer; } button:hover { background: #edf3ee; }
+button:focus-visible,select:focus-visible,.matrix:focus-visible { outline: 3px solid #608c78; outline-offset: 2px; }
+.legend { margin: 8px 0; } #count { float: right; }
+.matrix { max-height: 74vh; overflow: auto; border: 1px solid #d7dcd6; background: white; scrollbar-color: #a8b5ac #f0f2ee; }
+table { border-spacing: 0; table-layout: fixed; width: max-content; font-size: 13px; }
+th,td { height: 44px; padding: 9px 8px; border-right: 1px solid #e3e7e1; border-bottom: 1px solid #e3e7e1; }
+thead th { position: sticky; top: 0; z-index: 3; background: #eef1eb; width: var(--os); min-width: var(--os); text-align: center; }
+th:first-child { width: var(--name); min-width: var(--name); max-width: var(--name); position: sticky; left: 0; text-align: left; }
+thead th:first-child { z-index: 4; background: #e8ede6; }
+tbody th { background: #fff; z-index: 2; font-weight: 500; box-shadow: 2px 0 0 #d7dcd6; }
+td { width: var(--os); min-width: var(--os); text-align: center; color: #b1b8b2; }
+td.yes { color: #22694c; background: #edf6ef; font-weight: 700; }
+tbody tr:hover th,tbody tr:hover td { background: #f8f4e8; }
+thead small { display: block; font-size: 10px; font-weight: 400; color: #606c63; }
+.note { max-width: 960px; margin: 16px 0 0; } details { margin-top: 18px; } a { color: #38634f; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media(max-width:600px) { :root { --name: 175px; } main { padding: 22px 12px; } h1 { font-size: 22px; } table { font-size: 12px; } th,td { padding: 8px 6px; } .controls { gap: 8px; } .matrix { max-height: 72svh; } }
