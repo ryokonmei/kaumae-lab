@@ -21,6 +21,10 @@ thead th:first-child { z-index: 4; background: #e8ede6; }
 tbody th { background: #fff; z-index: 2; font-weight: 500; box-shadow: 2px 0 0 #d7dcd6; }
 td { width: var(--os); min-width: var(--os); text-align: center; color: #b1b8b2; }
 td.yes { color: #22694c; background: #edf6ef; font-weight: 700; }
+td.security { color: #356e99; background: #eaf3fc; font-weight: 700; }
+.os-key { color: #22694c; } .security-key { color: #356e99; }
+.security-date { min-width: 142px; width: 142px; font-size: 11px; color: #52616d; }
+.security-date small { display: block; font-size: 10px; font-weight: 400; }
 tbody tr:hover th,tbody tr:hover td { background: #f8f4e8; }
 thead small { display: block; font-size: 10px; font-weight: 400; color: #606c63; }
 .note { max-width: 960px; margin: 16px 0 0; } details { margin-top: 18px; } a { color: #38634f; }
